@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header con Menú Hamburguesa y Hero Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes slideIn {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+    .animate-slide-in {
+      animation: slideIn 0.3s ease-out;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Header -->
+  <header class="relative w-full h-64 md:h-96 bg-cover bg-center" style="background-image: url('https://media.istockphoto.com/id/1318621315/photo/hologram-on-virtual-digital-screen.jpg?s=612x612&w=0&k=20&c=50q0i6Zfv5JNyVEh0Usizch_DwxToHGqA_4hfKTRGk0=');">
+    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
+    <div class="container mx-auto flex justify-between items-center p-4 md:p-6 relative z-10">
+      <div class="flex items-center">
+        <img
+          src="https://scontent.fmzt2-1.fna.fbcdn.net/v/t39.30808-6/429648186_256970730786939_3302188114691827005_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGXlT7FT4LfuADNqQvefzRn0JdgfjxMUIPQl2B-PExQgxNu_fbuNvEiqa6re_eovSReCLkYRE8wf5od3_CTIzgk&_nc_ohc=9Lb0rYVBMMcQ7kNvgHF5u3T&_nc_oc=Adgsd1RWrJc0auWU_dU6WBzAaE6coxkZOILd9rW4Fj263Zw36M-99rXjyQ51PdW7_-o&_nc_zt=23&_nc_ht=scontent.fmzt2-1.fna&_nc_gid=Aw6ACxYoS4jjdCE-NhL1eXD&oh=00_AYDpaxc1uZp1KfYkFFUhyuLzN0pD7aSHa_G2EwYevGXZBw&oe=67B8172A"
+          alt="Logo"
+          class="h-16 w-16 md:h-24 md:w-24 mr-4 transition-transform duration-300 hover:scale-110"
+        />
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <ul class="flex space-x-8">
+          <li><a href="/index.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Inicio</a></li>
+          <li><a href="/Acercade.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Acerca de</a></li>
+          <li><a href="/portafolio.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Portafolio</a></li>
+          <li><a href="#servicios" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Servicios</a></li>
+          <li><a href="#contacto" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="md:hidden">
+        <button class="text-white focus:outline-none" onclick="toggleMenu()">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-gray-900 bg-opacity-95 transform transition-transform duration-300 ease-in-out z-50 translate-x-full">
+      <div class="flex justify-end p-4">
+        <button class="text-white focus:outline-none" onclick="toggleMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="flex flex-col space-y-4 p-4">
+        <li><a href="/index.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Inicio</a></li>
+        <li><a href="/Acercade.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Acerca de</a></li>
+        <li><a href="/portafolio.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Portafolio</a></li>
+        <li><a href="#servicios" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Servicios</a></li>
+        <li><a href="#contacto" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="absolute bottom-0 w-full z-10">
+      <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" class="w-full h-16 md:h-24" preserveAspectRatio="none">
+        <path fill="#ffffff" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,176C672,171,768,117,864,117.3C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="relative w-full h-screen bg-white flex items-center justify-center text-center px-4">
+    <div class="relative z-10 text-gray-900">
+      <h1 class="text-3xl md:text-6xl font-bold mb-6">Transformamos tus ideas en realidad digital</h1>
+      <p class="text-base md:text-xl mb-14 max-w-2xl mx-auto text-gray-700">
+        Somos especialistas en diseño y desarrollo web, creando soluciones a medida para impulsar tu negocio en línea.
+      </p>
+      <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+        <button onclick="scrollToSection('servicios')" class="bg-white text-black px-6 py-2 md:px-8 md:py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none">
+          Ver Servicios
+        </button>
+        <button onclick="scrollToSection('contacto')" class="bg-white text-black px-6 py-2 md:px-8 md:py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none">
+          Contactar Ahora
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Section -->
+  <section id="servicios" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Nuestros Servicios</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Diseño Web" class="w-16 h-16 mx-auto mb-4">
+          <h3 class="text-xl font-semibold mb-2">Diseño Web</h3>
+          <p class="text-gray-600">Creamos diseños modernos y atractivos que reflejan la identidad de tu marca.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Desarrollo Web" class="w-16 h-16 mx-auto mb-4">
+          <h3 class="text-xl font-semibold mb-2">Desarrollo Web</h3>
+          <p class="text-gray-600">Desarrollamos sitios web funcionales y optimizados para cualquier dispositivo.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="SEO" class="w-16 h-16 mx-auto mb-4">
+          <h3 class="text-xl font-semibold mb-2">Optimización SEO</h3>
+          <p class="text-gray-600">Mejoramos tu visibilidad en buscadores para atraer más clientes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto Section -->
+  <section id="contacto" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Contacto</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        ¿Tienes alguna pregunta o proyecto en mente? ¡No dudes en contactarnos!
+      </p>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">¡Trabajemos juntos!</h3>
+          <p class="text-gray-600 text-lg mb-2">
+            En nuestro equipo, creemos en la colaboración y la innovación. Si tienes una idea, estamos aquí para ayudarte a hacerla realidad.
+          </p>
+          <p class="text-gray-600 text-lg mb-6">
+            No importa cuál sea tu proyecto, estamos listos para escucharte y ofrecerte soluciones a medida. ¡Contáctanos hoy mismo!
+          </p>
+          <img
+            src="https://media.istockphoto.com/id/988756764/photo/broadcast-and-media-concept.jpg?s=612x612&w=0&k=20&c=cRQpw4Bo6zgdj2S2mXsfreEayxpWX3yFCql0UAhp2OU="
+            alt="Equipo trabajando"
+            class="w-full h-auto rounded-lg shadow-lg mb-6"
+          />
+        </div>
+        <div class="w-full md:w-1/2">
+          <form class="bg-gray-50 p-6 md:p-8 rounded-lg shadow-lg">
+            <div class="mb-6">
+              <label for="nombre" class="block text-gray-700 font-semibold mb-2">Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                required
+              />
+            </div>
+            <div class="mb-6">
+              <label for="email" class="block text-gray-700 font-semibold mb-2">Correo Electrónico</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="tu@email.com"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                required
+              />
+            </div>
+            <div class="mb-6">
+              <label for="mensaje" class="block text-gray-700 font-semibold mb-2">Mensaje</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="5"
+                placeholder="Escribe tu mensaje aquí..."
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                required
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="bg-blue-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none"
+              >
+                Enviar Mensaje
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">¡Da el salto al futuro!</h3>
+          <p class="text-gray-300 text-lg">
+            El futuro pertenece a quienes se atreven a soñar y actuar. ¡Únete a nosotros y transforma tus ideas en realidad!
+          </p>
+        </div>
+        <div class="w-full md:w-1/2 text-center md:text-right">
+          <img
+          src="https://scontent.fmzt2-1.fna.fbcdn.net/v/t39.30808-6/429648186_256970730786939_3302188114691827005_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGXlT7FT4LfuADNqQvefzRn0JdgfjxMUIPQl2B-PExQgxNu_fbuNvEiqa6re_eovSReCLkYRE8wf5od3_CTIzgk&_nc_ohc=9Lb0rYVBMMcQ7kNvgHF5u3T&_nc_oc=Adgsd1RWrJc0auWU_dU6WBzAaE6coxkZOILd9rW4Fj263Zw36M-99rXjyQ51PdW7_-o&_nc_zt=23&_nc_ht=scontent.fmzt2-1.fna&_nc_gid=Aw6ACxYoS4jjdCE-NhL1eXD&oh=00_AYDpaxc1uZp1KfYkFFUhyuLzN0pD7aSHa_G2EwYevGXZBw&oe=67B8172A"
+          class="w-25 h-25 rounded-lg shadow-lg mb-6 "
+        />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-gray-300 text-sm">&copy;Copyright 2024. Todos los derechos reservados.</p>
+    </div>
+    
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('translate-x-full');
+    }
+
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
