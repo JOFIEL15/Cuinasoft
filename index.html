@@ -1,224 +1,398 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Header con Menú Hamburguesa y Hero Section</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes slideIn {
-      from { transform: translateX(100%); }
-      to { transform: translateX(0); }
-    }
-    .animate-slide-in {
-      animation: slideIn 0.3s ease-out;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscuinaSoft-Soluciones-digitales-reales</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 </head>
-<body class="font-sans">
+<body class="font-sans scroll-smooth">
 
-  <!-- Header -->
-  <header class="relative w-full h-64 md:h-96 bg-cover bg-center" style="background-image: url('https://media.istockphoto.com/id/1318621315/photo/hologram-on-virtual-digital-screen.jpg?s=612x612&w=0&k=20&c=50q0i6Zfv5JNyVEh0Usizch_DwxToHGqA_4hfKTRGk0=');">
-    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
-    <div class="container mx-auto flex justify-between items-center p-4 md:p-6 relative z-10">
-      <div class="flex items-center">
-        <img
-          src="https://scontent.fmzt2-1.fna.fbcdn.net/v/t39.30808-6/429648186_256970730786939_3302188114691827005_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGXlT7FT4LfuADNqQvefzRn0JdgfjxMUIPQl2B-PExQgxNu_fbuNvEiqa6re_eovSReCLkYRE8wf5od3_CTIzgk&_nc_ohc=9Lb0rYVBMMcQ7kNvgHF5u3T&_nc_oc=Adgsd1RWrJc0auWU_dU6WBzAaE6coxkZOILd9rW4Fj263Zw36M-99rXjyQ51PdW7_-o&_nc_zt=23&_nc_ht=scontent.fmzt2-1.fna&_nc_gid=Aw6ACxYoS4jjdCE-NhL1eXD&oh=00_AYDpaxc1uZp1KfYkFFUhyuLzN0pD7aSHa_G2EwYevGXZBw&oe=67B8172A"
-          alt="Logo"
-          class="h-16 w-16 md:h-24 md:w-24 mr-4 transition-transform duration-300 hover:scale-110"
-        />
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <ul class="flex space-x-8">
-          <li><a href="/index.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Inicio</a></li>
-          <li><a href="/Acercade.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Acerca de</a></li>
-          <li><a href="/portafolio.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Portafolio</a></li>
-          <li><a href="#servicios" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Servicios</a></li>
-          <li><a href="#contacto" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl md:text-2xl">Contacto</a></li>
-        </ul>
+  <header class="bg-gray-900 text-white fixed w-full z-50 shadow-md">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="#" class="text-2xl font-bold">EscuinaSoft</a>
+      
+      <nav class="hidden md:flex space-x-6">
+        <a href="#nosotros" class="hover:text-blue-400 transition">Nosotros</a>
+        <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
+        <a href="#portafolio" class="hover:text-blue-400 transition">Portafolio</a>
+        <a href="#contacto" class="hover:text-blue-400 transition">Contacto</a>
       </nav>
-      <div class="md:hidden">
-        <button class="text-white focus:outline-none" onclick="toggleMenu()">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-gray-900 bg-opacity-95 transform transition-transform duration-300 ease-in-out z-50 translate-x-full">
-      <div class="flex justify-end p-4">
-        <button class="text-white focus:outline-none" onclick="toggleMenu()">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <ul class="flex flex-col space-y-4 p-4">
-        <li><a href="/index.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Inicio</a></li>
-        <li><a href="/Acercade.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Acerca de</a></li>
-        <li><a href="/portafolio.html" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Portafolio</a></li>
-        <li><a href="#servicios" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Servicios</a></li>
-        <li><a href="#contacto" class="text-white hover:text-blue-400 transition duration-300 hover:scale-105 text-xl">Contacto</a></li>
-      </ul>
-    </div>
-    <div class="absolute bottom-0 w-full z-10">
-      <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" class="w-full h-16 md:h-24" preserveAspectRatio="none">
-        <path fill="#ffffff" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,176C672,171,768,117,864,117.3C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      </svg>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="inicio" class="relative w-full h-screen bg-white flex items-center justify-center text-center px-4">
-    <div class="relative z-10 text-gray-900">
-      <h1 class="text-3xl md:text-6xl font-bold mb-6">Transformamos tus ideas en realidad digital</h1>
-      <p class="text-base md:text-xl mb-14 max-w-2xl mx-auto text-gray-700">
-        Somos especialistas en diseño y desarrollo web, creando soluciones a medida para impulsar tu negocio en línea.
-      </p>
-      <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
-        <button onclick="scrollToSection('servicios')" class="bg-white text-black px-6 py-2 md:px-8 md:py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none">
-          Ver Servicios
-        </button>
-        <button onclick="scrollToSection('contacto')" class="bg-white text-black px-6 py-2 md:px-8 md:py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none">
-          Contactar Ahora
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Servicios Section -->
-  <section id="servicios" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Nuestros Servicios</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Diseño Web" class="w-16 h-16 mx-auto mb-4">
-          <h3 class="text-xl font-semibold mb-2">Diseño Web</h3>
-          <p class="text-gray-600">Creamos diseños modernos y atractivos que reflejan la identidad de tu marca.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Desarrollo Web" class="w-16 h-16 mx-auto mb-4">
-          <h3 class="text-xl font-semibold mb-2">Desarrollo Web</h3>
-          <p class="text-gray-600">Desarrollamos sitios web funcionales y optimizados para cualquier dispositivo.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="SEO" class="w-16 h-16 mx-auto mb-4">
-          <h3 class="text-xl font-semibold mb-2">Optimización SEO</h3>
-          <p class="text-gray-600">Mejoramos tu visibilidad en buscadores para atraer más clientes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto Section -->
-  <section id="contacto" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Contacto</h2>
-      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-        ¿Tienes alguna pregunta o proyecto en mente? ¡No dudes en contactarnos!
-      </p>
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="w-full md:w-1/2 text-center md:text-left">
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">¡Trabajemos juntos!</h3>
-          <p class="text-gray-600 text-lg mb-2">
-            En nuestro equipo, creemos en la colaboración y la innovación. Si tienes una idea, estamos aquí para ayudarte a hacerla realidad.
-          </p>
-          <p class="text-gray-600 text-lg mb-6">
-            No importa cuál sea tu proyecto, estamos listos para escucharte y ofrecerte soluciones a medida. ¡Contáctanos hoy mismo!
-          </p>
-          <img
-            src="https://media.istockphoto.com/id/988756764/photo/broadcast-and-media-concept.jpg?s=612x612&w=0&k=20&c=cRQpw4Bo6zgdj2S2mXsfreEayxpWX3yFCql0UAhp2OU="
-            alt="Equipo trabajando"
-            class="w-full h-auto rounded-lg shadow-lg mb-6"
-          />
-        </div>
-        <div class="w-full md:w-1/2">
-          <form class="bg-gray-50 p-6 md:p-8 rounded-lg shadow-lg">
-            <div class="mb-6">
-              <label for="nombre" class="block text-gray-700 font-semibold mb-2">Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Tu nombre"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
-                required
-              />
-            </div>
-            <div class="mb-6">
-              <label for="email" class="block text-gray-700 font-semibold mb-2">Correo Electrónico</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="tu@email.com"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
-                required
-              />
-            </div>
-            <div class="mb-6">
-              <label for="mensaje" class="block text-gray-700 font-semibold mb-2">Mensaje</label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="5"
-                placeholder="Escribe tu mensaje aquí..."
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
-                required
-              ></textarea>
-            </div>
-            <div class="text-center">
-              <button
-                type="submit"
-                class="bg-blue-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none"
-              >
-                Enviar Mensaje
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="w-full md:w-1/2 text-center md:text-left">
-          <h3 class="text-2xl md:text-3xl font-bold mb-4">¡Da el salto al futuro!</h3>
-          <p class="text-gray-300 text-lg">
-            El futuro pertenece a quienes se atreven a soñar y actuar. ¡Únete a nosotros y transforma tus ideas en realidad!
-          </p>
-        </div>
-        <div class="w-full md:w-1/2 text-center md:text-right">
-          <img
-          src="https://scontent.fmzt2-1.fna.fbcdn.net/v/t39.30808-6/429648186_256970730786939_3302188114691827005_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGXlT7FT4LfuADNqQvefzRn0JdgfjxMUIPQl2B-PExQgxNu_fbuNvEiqa6re_eovSReCLkYRE8wf5od3_CTIzgk&_nc_ohc=9Lb0rYVBMMcQ7kNvgHF5u3T&_nc_oc=Adgsd1RWrJc0auWU_dU6WBzAaE6coxkZOILd9rW4Fj263Zw36M-99rXjyQ51PdW7_-o&_nc_zt=23&_nc_ht=scontent.fmzt2-1.fna&_nc_gid=Aw6ACxYoS4jjdCE-NhL1eXD&oh=00_AYDpaxc1uZp1KfYkFFUhyuLzN0pD7aSHa_G2EwYevGXZBw&oe=67B8172A"
-          class="w-25 h-25 rounded-lg shadow-lg mb-6 "
-        />
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="text-center">
-      <p class="text-gray-300 text-sm">&copy;Copyright 2024. Todos los derechos reservados.</p>
+      
+      <button class="md:hidden text-white focus:outline-none" id="menuButton">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
     </div>
     
-  </footer>
+    <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-90 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-6 text-white text-xl">
+      <button class="absolute top-5 right-5 text-white" id="closeMenu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <a href="#nosotros" class="hover:text-blue-400">Nosotros</a>
+      <a href="#servicios" class="hover:text-blue-400">Servicios</a>
+      <a href="#portafolio" class="hover:text-blue-400">Portafolio</a>
+      <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+    </div>
+  </header>
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-blue-900 to-indigo-800 text-white overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGZyb250JTIwZW5kJTIwZGV2ZWxvcGVyfGVufDB8fDB8fHww');"></div>
+            
+            <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <!-- Left Side: Company Info -->
+                    <div class="w-full md:w-1/2 mb-12 md:mb-0">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                          Software <br> a medida <br> para resultados reales
+                        </h1>
+                        <p class="text-xl mb-8 text-gray-300">💡 Eficiencia | Escalabilidad | Innovación</p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="#" class="bg-white text-blue-900 font-semibold px-8 py-3 rounded-full hover:bg-blue-100 transition duration-300 text-center">Contactanos</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: Features -->
+                    <div class="w-full md:w-1/2 md:pl-12">
+                        <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-2xl">
+                            <h2 class="text-2xl font-semibold mb-6">Innovación Tecnológica</h2>
+                            <ul class="space-y-4">
+                                <li class="flex items-center">
+                                   <span>📌 Web | Apps | Sistemas empresariales</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span>📈 Optimiza tu empresa con soluciones inteligentes</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span>🎯 Empieza hoy</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Decorative Element -->
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+                </svg>
+            </div>
+        </section>
+    </main>
 
-  <!-- Scripts -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('translate-x-full');
-    }
+    <!--seccion nosotros-->
+    <!-- Nosotros Section -->
+<section id="nosotros" class="py-20">
+  <div class="container mx-auto px-6 md:px-12">
+      <!-- Primera Fila -->
+      <div class="flex flex-col md:flex-row items-center mb-12">
+          <div class="w-full md:w-1/2">
+              <img src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg" alt="Nosotros" class="rounded-lg shadow-lg">
+          </div>
+          <div class="w-full md:w-1/2 md:pl-12 mt-6 md:mt-0">
+              <h2 class="text-4xl font-bold text-gray-900 mb-4">¿Quiénes somos?</h2>
+              <p class="text-gray-600 text-lg">
+                  En <span class="font-semibold">EscuinaSoft</span>, creamos soluciones de software innovadoras que 
+                  impulsan negocios al siguiente nivel. Nuestro equipo de expertos diseña aplicaciones web, móviles 
+                  y sistemas personalizados que garantizan eficiencia y crecimiento para tu empresa.
+              </p>
+          </div>
+      </div>
 
-    function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  </script>
+      <!-- Segunda Fila -->
+      <div class="flex flex-col md:flex-row-reverse items-center mb-12">
+          <div class="w-full md:w-1/2">
+              <img src="https://st4.depositphotos.com/12981370/24312/i/450/depositphotos_243120806-stock-photo-programmer-working-software-development-coding.jpg" alt="Nuestra misión" class="rounded-lg shadow-lg">
+          </div>
+          <div class="w-full md:w-1/2 md:pr-12 mt-6 md:mt-0">
+              <h2 class="text-4xl font-bold text-gray-900 mb-4">Nuestra misión</h2>
+              <p class="text-gray-600 text-lg">
+                  Desarrollamos software de alta calidad, orientado a resolver problemas reales y optimizar procesos. 
+                  Nuestra meta es transformar ideas en soluciones tecnológicas que potencien negocios y mejoren la vida de las personas.
+              </p>
+          </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center mb-12">
+        <div class="w-full md:w-1/2">
+            <img src="https://st4.depositphotos.com/1643295/30799/i/450/depositphotos_307997018-stock-photo-smart-teenage-boy-glasses-checking.jpg" alt="Nosotros" class="rounded-lg shadow-lg">
+        </div>
+        <div class="w-full md:w-1/2 md:pl-12 mt-6 md:mt-0">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Nuestra Visión</h2>
+            <p class="text-gray-600 text-lg">
+              Aspiramos a ser una empresa líder en desarrollo de software, reconocida por la calidad, innovación y soluciones tecnológicas que transforman negocios. Buscamos impulsar la digitalización y automatización en empresas de todos los tamaños, creando herramientas que optimicen procesos, mejoren la eficiencia y potencien el crecimiento de nuestros clientes.    
+            </p>
+        </div>
+    </div>
+
+  </div>
+</section>
+
+<!--servicios-->
+<section id="servicios">
+  <div class="container mx-auto p-6">
+    <h2 class="text-4xl mt-20 font-bold text-center mb-12 transition-transform duration-500 transform hover:scale-105">
+      Nuestros Servicios
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          🌐
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Desarrollo Web
+        </h3>
+        <p class="text-gray-600">Creación de sitios web responsivos e interactivos.</p>
+      </div>
+      
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          🛒
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Tiendas en Línea
+        </h3>
+        <p class="text-gray-600">Desarrollo de plataformas de comercio electrónico eficientes y seguras.</p>
+      </div>
+  
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          📱
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Aplicaciones Móviles
+        </h3>
+        <p class="text-gray-600">Creación de apps nativas y multiplataforma para iOS y Android.</p>
+      </div>
+  
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          💻
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Sistemas Web y de Escritorio
+        </h3>
+        <p class="text-gray-600">Soluciones empresariales a medida para optimizar tu negocio.</p>
+      </div>
+  
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          🔍
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Optimización SEO
+        </h3>
+        <p class="text-gray-600">Mejoramos la visibilidad de tu sitio en los motores de búsqueda.</p>
+      </div>
+  
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          🎨
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Diseño Gráfico
+        </h3>
+        <p class="text-gray-600">Diseño de contenido visual atractivo y profesional.</p>
+      </div>
+  
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          ⚙️
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Automatización Empresarial
+        </h3>
+        <p class="text-gray-600">Desarrollo de software para optimizar procesos y aumentar la eficiencia.</p>
+      </div>
+  
+      <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
+        <div class="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
+          🧠
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-blue-500">
+          Consultoría en Tecnología
+        </h3>
+        <p class="text-gray-600">Asesoría experta para mejorar la infraestructura y estrategia digital.</p>
+      </div>
+    </div>
+  </div>  
+</section>
+
+<!--portafolio-->
+
+<section id="portafolio" class="py-16 bg-gray-100">
+  <div class="container mx-auto px-6 py-6">
+    <h2 class="text-4xl font-bold text-center mb-12 transition-transform duration-500 transform hover:scale-105">
+      Nuestro Portafolio
+    </h2>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        
+        <!-- Proyecto 1 -->
+        <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?technology,website" alt="Proyecto 1" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Plataforma de Gestión Empresarial</h3>
+            <p class="text-gray-600">Sistema para administrar recursos y procesos internos.</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?app,mobile" alt="Proyecto 2" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Aplicación Móvil para Delivery</h3>
+            <p class="text-gray-600">App para gestionar pedidos con seguimiento en tiempo real.</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 -->
+        <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?ecommerce,store" alt="Proyecto 3" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Tienda en Línea Personalizada</h3>
+            <p class="text-gray-600">E-commerce con pagos y administración de productos.</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 4 -->
+        <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?dashboard,analytics" alt="Proyecto 4" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Dashboard de Análisis de Datos</h3>
+            <p class="text-gray-600">Reportes dinámicos y gráficos avanzados.</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 5 -->
+        <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?security,cyber" alt="Proyecto 5" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Sistema de Seguridad y Monitoreo</h3>
+            <p class="text-gray-600">Software para control de accesos en empresas.</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 6 -->
+        <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?education,learning" alt="Proyecto 6" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Plataforma de Educación en Línea</h3>
+            <p class="text-gray-600">Portal con cursos, foros y herramientas interactivas.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--contacto-->
+<section id="contacto" class="py-16 bg-white">
+  <div class="container mx-auto px-6 py-2 max-w-3xl">
+    <h2 class="text-4xl font-bold text-center mb-12 transition-transform duration-500 transform hover:scale-105">
+      Contáctanos
+    </h2>
+
+    <form action="#" method="POST" class="bg-gray-100 p-8 rounded-lg shadow-lg">
+      <div class="mb-6">
+        <label for="nombre" class="block text-gray-700 font-semibold mb-2">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300">
+      </div>
+
+      <div class="mb-6">
+        <label for="email" class="block text-gray-700 font-semibold mb-2">Correo Electrónico</label>
+        <input type="email" id="email" name="email" required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300">
+      </div>
+
+      <div class="mb-6">
+        <label for="mensaje" class="block text-gray-700 font-semibold mb-2">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"></textarea>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-gray-900 text-white font-semibold py-3 rounded-lg hover:bg-gray-800 transition-all duration-300">
+        Enviar Mensaje
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-white py-10">
+  <div class="container mx-auto text-center px-6">
+    
+    <!-- Logo -->
+    <div class="mb-4">
+      <img src="tu-logo.png" alt="EscuinaSoft Logo" class="mx-auto w-32">
+    </div>
+
+    <!-- Frase Motivacional -->
+    <p class="text-lg font-light italic mb-6">
+      "Innovamos para transformar ideas en realidad." 🚀
+    </p>
+
+    <!-- Redes Sociales -->
+    <div class="flex justify-center space-x-6 mb-6">
+      <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-blue-500 transition">
+        <ion-icon name="logo-facebook" class="text-3xl"></ion-icon>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-pink-500 transition">
+        <ion-icon name="logo-instagram" class="text-3xl"></ion-icon>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <p class="text-gray-500 text-sm">
+      © <span id="year"></span> EscuinaSoft. Todos los derechos reservados.
+    </p>
+
+  </div>
+</footer>
+
+<!-- Script para actualizar el año automáticamente -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<!-- Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+<script src="menu-mobil.js"></script>
+<script src="carrusel.js"></script>
 </body>
 </html>
